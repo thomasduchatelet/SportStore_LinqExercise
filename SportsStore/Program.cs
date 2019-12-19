@@ -151,14 +151,15 @@ namespace SportsStore
             //  - er geen customers zijn met die naam, 
             //  - of indien er meerdere customers zijn met die naam  
             // Test je code ook met Student0 en Student9
+            string name = "Student9";
             try
             {
-
-                // hier invullen
+                string customer = customers.Where(c => c.Name.Equals(name)).Select(c => c.FirstName).SingleOrDefault();
+               Console.WriteLine(customer is null ? $"Er zijn geen customers met de naam {name}" : $"De voornaam van de customer met naam {name} is {customer}");
             }
             catch (Exception)
             {
-                // hier invullen
+                Console.WriteLine($"Er zijn meerdere customers met de naam {name}");
             }
             #endregion
             Console.ReadLine();
